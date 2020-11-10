@@ -11,12 +11,48 @@
         <div class="header-search"></div>
       </a>
     </header>
+    <!-- <Swiper :autoplay="2000" :loop="true" @change="changeHandler">
+      <Swiper-item>1</Swiper-item>
+      <Swiper-item>2</Swiper-item>
+      <Swiper-item>3</Swiper-item>
+    </Swiper> -->
+    <Swiper ref='xxx'>
+      <Swiper-item>1</Swiper-item>
+      <Swiper-item>2</Swiper-item>
+      <Swiper-item>3</Swiper-item>
+    </Swiper>
+    <Swiper >
+      <Swiper-item>1</Swiper-item>
+      <Swiper-item>2</Swiper-item>
+      <Swiper-item>3</Swiper-item>
+    </Swiper>
    </div>
 </template>
 
 <script>
+
+// 引入抽离出来的swiper插件
+// import Swiper from '@/components/Swiper/Swiper'
+
+// 写上index时,就不用写那么复杂的路径了,因为直接加载该目录下的头文件
+import { Swiper, SwiperItem } from '@/components/Swiper'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  // 自定义组件要先调用一下才可以使用
+  components: {
+    Swiper,
+    SwiperItem
+  },
+  methods: {
+    changeHandler (payload) {
+      console.log('我自己index:', payload)
+    }
+  },
+  mounted () {
+    // console.log(this.$refs.xxx)
+    // console.log(this.$refs.xxx.$el)
+  }
 }
 </script>
 
@@ -52,5 +88,6 @@ export default {
                 background-size: 100%;
             }
         }
+
     }
 </style>
