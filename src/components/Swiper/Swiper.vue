@@ -28,11 +28,11 @@ export default {
   },
   mounted () {
     //   解决复用后分页器不动的问题,就是类名冲突了
-    //解决方案一
+    // 解决方案一
     var that = this
-    //解决方案二
+    // 解决方案二
     console.log(this.$el)
-    //解决方案三
+    // 解决方案三
     console.log(this.$refs.swiper)
     /*eslint-disable */
       new Swiper(this.$refs.swiper,{

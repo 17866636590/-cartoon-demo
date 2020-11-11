@@ -21,11 +21,11 @@
       <Swiper-item>2</Swiper-item>
       <Swiper-item>3</Swiper-item>
     </Swiper>
-    <Swiper >
+    <!-- <Swiper >
       <Swiper-item>1</Swiper-item>
       <Swiper-item>2</Swiper-item>
       <Swiper-item>3</Swiper-item>
-    </Swiper>
+    </Swiper> -->
    </div>
 </template>
 
@@ -37,6 +37,7 @@
 // 写上index时,就不用写那么复杂的路径了,因为直接加载该目录下的头文件
 import { Swiper, SwiperItem } from '@/components/Swiper'
 
+import { getBanner } from '@/api/cartoon'
 export default {
   name: 'Home',
   // 自定义组件要先调用一下才可以使用
@@ -52,16 +53,52 @@ export default {
   mounted () {
     // console.log(this.$refs.xxx)
     // console.log(this.$refs.xxx.$el)
+  },
+  // created () {
+  //   fetch('https://mhd.zhuishushenqi.com/comic_v2/getproad?apptype=8&appversion=1.0&channel=web-app&adgroupid=123')
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log(res)
+  //     })
+  // }
+
+  // 处理不能跨域的网站https://api.asilu.com/today/
+  // created () {
+  //   fetch('http://localhost:8080/migu/today/ ')
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log(res)
+  //     })
+  // }
+
+  created () {
+    getBanner().then(res => {
+      console.log(res)
+    })
   }
 }
 </script>
 
 <style lang='scss' scoped>
+@import "~@/assets/styles/mixin.scss";
     .page-home{
         display: flex;
         flex-direction:column ;
         height: 100%;
         .index-header{
+          position: relative;
+          /* border-bottom: 1px solid #ededed;
+           &::after{
+             content: "";
+             position: absolute;
+             width: 100%;
+             height: 1px;
+             left: 0;
+             bottom: 0;
+             background: #ededed;
+            transform: scaleY(0.5);
+           }*/
+           @include border-bottom;
             display: flex;
             height: 44px;
             //三者等分平铺

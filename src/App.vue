@@ -12,6 +12,6 @@ export default {
 
 <style>
 body{
-  background: chartreuse;
+  /* background: chartreuse; */
 }
 </style>
