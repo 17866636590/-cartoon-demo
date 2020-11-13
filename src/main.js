@@ -15,13 +15,11 @@ Vue.filter()
 // 注册全局过滤器
 Vue.filter('formatYi', (value) => {
   var Yi = Math.pow(10, 8) // 10,0000,000
-  /*eslint-disable */
   if (value > Yi) {
-    return `${(value/Yi).toFixed(2)}亿`
+    return `${(value / Yi).toFixed(2)}亿`
   } else {
-    return `${(value/Math.pow(10,4)).toFixed(2)}万`
+    return `${(value / Math.pow(10, 4)).toFixed(2)}万`
   }
-  /* eslint-enable */
 })
 
 new Vue({

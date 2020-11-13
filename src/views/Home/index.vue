@@ -97,7 +97,7 @@ export default {
         // console.log(res)
         if (res.code === 200) {
           this.recommentList = res.info
-          console.log(this.recommentList)
+          // console.log(this.recommentList)
         } else {
         // 不OK,就报错
         // 在这里先alert进行报错,后续 我们可以用van 组件库的组件
