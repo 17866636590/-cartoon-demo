@@ -2,10 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import { Notify } from 'vant'
 
 import './assets/styles/base.scss'
 Vue.config.productionTip = false
-
+// 全局注册
+Vue.use(Notify)
 // 数字变成变单位的数字
 /*
 Vue.filter()

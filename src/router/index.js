@@ -14,7 +14,9 @@ import SearchResult from '../views/SearchResult'
 import My from '../views/My'
 import Vip from '../views/Vip'
 import Ranking from '../views/Ranking'
-
+import nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
+nprogress.configure({ showSpinner: false }) // 取消小圆圈加载
 Vue.use(VueRouter)
 
 const routes = [
@@ -57,7 +59,7 @@ const routes = [
     component: Search
   },
   {
-    path: '/searchResult',
+    path: '/search-result',
     component: SearchResult
   },
   {
@@ -82,4 +84,12 @@ const router = new VueRouter({
   routes
 })
 
+// 添加全局路由守卫   在这里我们去给每个页面,添加进度条
+router.beforeEach((to, from, next) => {
+  nprogress.start()
+  next()
+})
+router.afterEach((to, from, next) => {
+  nprogress.done()
+})
 export default router

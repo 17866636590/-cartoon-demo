@@ -3,7 +3,7 @@
     <normal-header title="排行榜"></normal-header>
     <div class="ranking-main">
       <header-type :types="types" @click="onChange"></header-type>
-      <cartoon-list :list="cartoonList"></cartoon-list>
+      <cartoon-list :list="cartoonList" :isRanking="true"></cartoon-list>
     </div>
   </div>
 </template>
@@ -61,9 +61,6 @@ export default {
         } else {
           console.log(res.code_msg)
         }
-      }).catch(err => {
-        console.log(err)
-        alert('网络异常,请稍后重试')
       })
     },
     onChange (payload) {
@@ -83,7 +80,7 @@ export default {
   flex-direction: column;
   height: 100%;
 
-  .classify-main {
+  .ranking-main {
     flex: 1;
     overflow-y: auto;
   }

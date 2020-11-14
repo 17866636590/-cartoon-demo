@@ -1,5 +1,6 @@
 // 引入axios
 import axios from 'axios'
+import { Notify } from 'vant'
 
 // 创建实例
 const instance = axios.create({
@@ -24,6 +25,11 @@ instance.interceptors.response.use(function (response) {
   return response.data
 }, function (error) {
   // 对响应错误做点什么
+  // 在调用.catch之前,先经过这里,可以代替.catch,可以把各个页面删掉
+  Notify({
+    message: '网络异常,请稍后重试',
+    duration: 1000
+  })
   return Promise.reject(error)
 })
 
