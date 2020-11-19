@@ -3,7 +3,7 @@
         <div class="recommend-divide"></div>
         <div class="recommend-title">
           <div class="title-group">
-            <img class="title-icon" :src="info.icon" />
+            <img class="title-icon" v-lazy="info.icon" />
             <span class="title-text font-36">{{info.name}}</span>
           </div>
           <span class="title-more font-24">更多 &gt;</span>
@@ -13,7 +13,7 @@
           <div class="item" v-for="childItem in info.comicslist" :key="childItem.bigbook_id">
             <img
               class="item-pic"
-              :src="childItem.extension &&JSON.parse(childItem.extension).xsyzfx"
+              v-lazy="childItem.extension &&JSON.parse(childItem.extension).xsyzfx"
             />
             <p class="item-name font-28">{{childItem.bigbook_name}}</p>
             <p class="item-text font-24">{{childItem.extension && JSON.parse(childItem.extension).recommendwords}}</p>
@@ -24,7 +24,7 @@
           <div class="item" v-for="childItem in info.comicslist" :key="childItem.bigbook_id">
             <img
               class="item-pic"
-              :src="childItem.coverurl"
+              v-lazy="childItem.coverurl"
             />
             <p class="item-name font-28">{{childItem.bigbook_name}}</p>
             <p class="item-text font-24">{{childItem.recommendwords}}</p>
@@ -35,7 +35,7 @@
           <div class="item" v-for="(childItem, childIndex ) in info.comicslist" :key="childItem.bigbook_id">
             <img
               class="item-pic"
-              :src="JSON.parse(childItem.extension).scfk344_202"
+              v-lazy="JSON.parse(childItem.extension).scfk344_202"
             />
             <div class="ranking-group">
               <div :class="`item-ranking item-ranking-${childIndex+1}`"></div>

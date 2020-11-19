@@ -4,9 +4,13 @@
     <div class="search-result-main">
       <section class="cartoon-list search-result-list">
         <div class="list-item" v-for="item in cartoonList" :key='item.id'>
-          <div
+          <!-- <div
             class="item-pic"
             :style="`background-image: url(${item.coverurl});`"
+          ></div> -->
+           <div
+            class="item-pic"
+            v-lazy:background-image="item.coverurl"
           ></div>
           <div class="item-info">
             <div class="info-book font-30">{{item.name}}</div>

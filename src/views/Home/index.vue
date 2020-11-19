@@ -1,11 +1,12 @@
 <template>
    <div class="page-home">
+      <router-link to='/city' class="font-28">{{'当前选中的城市为:'+$store.getters['city/curCityName']}}</router-link>
     <index-header></index-header>
     <!-- 下载数据是异步，而实例化是直接在组件中，不在一个文件里，没有关联 ，v-if="bannerList.length>0"，有数据的时候加载他-->
     <div class="index-main">
       <Swiper class="my-swiper" v-if="bannerList.length>0" :autoplay='2000'>
       <Swiper-item v-for="item in bannerList" :key="item.id">
-        <img :src="item.imageurl" alt />
+        <img v-lazy="item.imageurl" alt />
       </Swiper-item>
     </Swiper>
     <!-- 导航 -->
@@ -18,7 +19,7 @@
           href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011202006214"
           target="_blank"
         >
-          <img class="img" src="https://wechatapp.zhuishushenqi.com/mhd/201711/gongan.jpg" />
+          <img class="img" v-lazy="`https://wechatapp.zhuishushenqi.com/mhd/201711/gongan.jpg`" />
           <div>沪公网安备 31011202006214号</div>
         </a>
         <div class="licence">
